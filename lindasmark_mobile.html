@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Lindasmark Air Cargo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #faf7f2;
+  color: #0d1b2a;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #0d1b2a;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.nav-logo span { color: #c8102e; }
+
+.nav-cta {
+  background: #c8102e;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+/* HERO */
+.hero {
+  background: #0d1b2a;
+  padding: 100px 20px 60px;
+  width: 100%;
+}
+
+.hero-tag {
+  display: inline-block;
+  border: 1px solid rgba(200,16,46,0.4);
+  color: #ff8090;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.8rem;
+  color: #ffffff;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  word-break: keep-all;
+}
+
+.hero h1 em {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: #f5a623;
+  display: block;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  font-weight: 300;
+  max-width: 100%;
+}
+
+.hero-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.btn-red {
+  display: block;
+  text-align: center;
+  background: #c8102e;
+  color: #ffffff;
+  padding: 15px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-outline {
+  display: block;
+  text-align: center;
+  background: transparent;
+  color: #ffffff;
+  padding: 15px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-num span { color: #f5a623; }
+
+.stat-label {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 4px;
+}
+
+/* ROUTE BANNER */
+.route-banner {
+  background: #c8102e;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.route-banner p {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* SECTIONS */
+.section {
+  padding: 72px 20px;
+  width: 100%;
+}
+
+.section-cream { background: #faf7f2; }
+.section-white { background: #ffffff; }
+.section-navy { background: #0d1b2a; }
+.section-lightgray { background: #f3f0eb; }
+
+.section-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8102e;
+  margin-bottom: 12px;
+}
+
+.section-tag-gold {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5a623;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: #0d1b2a;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.section-title-white {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.section-sub-white {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* RATE CARD */
+.rate-card {
+  background: #0d1b2a;
+  border-radius: 16px;
+  padding: 36px 28px;
+}
+
+.rate-label {
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5a623;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.rate-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+.rate-price sup {
+  font-size: 2rem;
+  vertical-align: top;
+  margin-top: 10px;
+  display: inline-block;
+  color: #f5a623;
+}
+
+.rate-price sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  vertical-align: baseline;
+}
+
+.rate-list { list-style: none; }
+
+.rate-list li {
+  color: rgba(255,255,255,0.7);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+}
+
+.rate-list li:last-child { border-bottom: none; }
+
+.rate-list li::before {
+  content: '-';
+  color: #c8102e;
+  flex-shrink: 0;
+}
+
+/* SERVICE CARDS */
+.service-card {
+  background: #faf7f2;
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(13,27,42,0.06);
+}
+
+.service-badge {
+  display: inline-block;
+  background: #0d1b2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.service-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0d1b2a;
+  margin-bottom: 8px;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* STEPS */
+.step {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.step:last-child { border-bottom: none; }
+
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.08);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.step-dot {
+  width: 8px;
+  height: 8px;
+  background: #c8102e;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.step-content { flex: 1; }
+
+.step-title {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.step-desc {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+
+/* INFO ITEMS */
+.info-item {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px 20px;
+  margin-bottom: 12px;
+  border-left: 3px solid #c8102e;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.info-dot {
+  width: 8px;
+  height: 8px;
+  background: #c8102e;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.info-text {
+  font-size: 0.88rem;
+  color: #0d1b2a;
+  line-height: 1.6;
+}
+
+/* TESTIMONIALS */
+.testimonial-card {
+  background: #faf7f2;
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(13,27,42,0.06);
+}
+
+.stars {
+  color: #f5a623;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  color: #0d1b2a;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  font-size: 0.83rem;
+  color: #0d1b2a;
+}
+
+.testimonial-loc {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* BOOKING */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.contact-badge {
+  background: #0d1b2a;
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  min-width: 44px;
+  text-align: center;
+}
+
+.contact-label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0d1b2a;
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: 36px;
+  box-shadow: 0 4px 30px rgba(13,27,42,0.06);
+}
+
+.form-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0d1b2a;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0d1b2a;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid rgba(13,27,42,0.12);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #0d1b2a;
+  background: #faf7f2;
+  outline: none;
+  margin-bottom: 16px;
+  -webkit-appearance: none;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: #c8102e;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-submit {
+  width: 100%;
+  background: #c8102e;
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(13,27,42,0.1);
+}
+
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25d366;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #6b7280;
+  margin-top: 14px;
+}
+
+/* FOOTER */
+footer {
+  background: #0d1b2a;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.footer-logo span { color: #c8102e; }
+
+.footer-tag {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.78rem;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.72rem;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">LINDASMARK <span>AIR CARGO</span></div>
+  <a href="#book" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">USA &rarr; Ghana Air Shipping</div>
+  <h1>Ship with<br><em>confidence.</em>Deliver with care.</h1>
+  <p class="hero-sub">Reliable air cargo service from the United States to Ghana. Trusted by the Ghanaian diaspora community in the DMV area and beyond.</p>
+  <div class="hero-btns">
+    <a href="#book" class="btn-red">Book a Shipment</a>
+    <a href="https://wa.me/17038706636" class="btn-outline" target="_blank">WhatsApp Us</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">$15<span>.99</span></div>
+      <div class="stat-label">Per kg</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5&ndash;<span>7</span></div>
+      <div class="stat-label">Business days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10<span>kg</span></div>
+      <div class="stat-label">Minimum</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROUTE BANNER -->
+<div class="route-banner">
+  <p>Virginia, USA &mdash; AIR CARGO &mdash; Accra, Ghana</p>
+  <p style="opacity:0.7; font-weight:400; letter-spacing:0.5px; font-size:0.72rem;">Consolidated Shipments &middot; Personal Service</p>
+</div>
+
+<!-- RATES -->
+<div class="section section-cream" id="rates">
+  <div class="section-tag">Pricing</div>
+  <div class="section-title">Simple, transparent rates.</div>
+  <p class="section-sub">One standard rate. No hidden fees. Final cost based on actual weight after we receive and weigh your package.</p>
+  <div class="rate-card">
+    <div class="rate-label">Standard Air Cargo Rate</div>
+    <div class="rate-price"><sup>$</sup>15.99<sub>/kg</sub></div>
+    <ul class="rate-list">
+      <li>10kg minimum shipment required</li>
+      <li>5&ndash;7 business days from cargo departure</li>
+      <li>Customs duties paid separately by recipient upon arrival in Ghana</li>
+      <li>Payment due before shipping</li>
+      <li>Oversized lightweight packages charged by dimensional weight</li>
+      <li>Refrigerated or perishable shipments quoted separately</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section section-white" id="services">
+  <div class="section-tag">What We Offer</div>
+  <div class="section-title">Everything handled, start to finish.</div>
+  <p class="section-sub">From receiving your packages in Virginia to coordinating pickup in Accra &mdash; we take care of it all.</p>
+
+  <div class="service-card">
+    <div class="service-badge">PKG</div>
+    <div class="service-title">Package Receiving</div>
+    <div class="service-desc">Ship directly to our Virginia address from any US retailer or drop off your own packages. We receive and hold them safely.</div>
+  </div>
+  <div class="service-card">
+    <div class="service-badge">BOX</div>
+    <div class="service-title">Package Consolidation</div>
+    <div class="service-desc">Multiple packages combined into one shipment to maximize value and reduce your overall shipping cost.</div>
+  </div>
+  <div class="service-card">
+    <div class="service-badge">PREP</div>
+    <div class="service-title">Repacking &amp; Preparation</div>
+    <div class="service-desc">We repack and prepare your shipment to travel safely and meet all airline cargo requirements.</div>
+  </div>
+  <div class="service-card">
+    <div class="service-badge">AIR</div>
+    <div class="service-title">Air Cargo Coordination</div>
+    <div class="service-desc">Full coordination from US departure to Ghana arrival, with updates at every stage of the journey.</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section section-navy" id="how">
+  <div class="section-tag-gold">Process</div>
+  <div class="section-title-white">How it works.</div>
+  <p class="section-sub-white">Four simple steps from booking to delivery in Ghana.</p>
+
+  <div class="step">
+    <div class="step-num">01</div>
+    <div class="step-dot"></div>
+    <div class="step-content">
+      <div class="step-title">Send or Drop Off</div>
+      <div class="step-desc">Ship packages to our Virginia location from any US retailer, or drop them off directly.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">02</div>
+    <div class="step-dot"></div>
+    <div class="step-content">
+      <div class="step-title">Receive &amp; Weigh</div>
+      <div class="step-desc">We receive, weigh, and prepare your packages. You receive confirmation with your final shipment details.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">03</div>
+    <div class="step-dot"></div>
+    <div class="step-content">
+      <div class="step-title">Cargo Departs</div>
+      <div class="step-desc">Your shipment is handed to the airline. We notify you when cargo is on its way to Ghana.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">04</div>
+    <div class="step-dot"></div>
+    <div class="step-content">
+      <div class="step-title">Pickup in Accra</div>
+      <div class="step-desc">We coordinate arrival and connect your recipient with our Accra warehouse for pickup or local delivery.</div>
+    </div>
+  </div>
+</div>
+
+<!-- IMPORTANT INFO -->
+<div class="section section-lightgray">
+  <div class="section-tag">Good to Know</div>
+  <div class="section-title">Important information.</div>
+  <p class="section-sub">A few things to keep in mind before you book.</p>
+
+  <div class="info-item">
+    <div class="info-dot"></div>
+    <div class="info-text">Multiple packages can be consolidated into one shipment &mdash; great for families sending several items at once.</div>
+  </div>
+  <div class="info-item">
+    <div class="info-dot"></div>
+    <div class="info-text">Oversized lightweight packages may be charged based on dimensional weight rather than actual weight.</div>
+  </div>
+  <div class="info-item">
+    <div class="info-dot"></div>
+    <div class="info-text">Customs duties and taxes in Ghana are the responsibility of the recipient and are paid separately upon arrival.</div>
+  </div>
+  <div class="info-item">
+    <div class="info-dot"></div>
+    <div class="info-text">Refrigerated or perishable shipments require a separate quote. Contact us directly to discuss.</div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section section-white" id="testimonials">
+  <div class="section-tag">Customer Reviews</div>
+  <div class="section-title">Trusted by the community.</div>
+  <p class="section-sub">What our customers are saying about shipping with Lindasmark.</p>
+
+  <div class="testimonial-card">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="testimonial-text">"My packages arrived safely and faster than expected. The communication throughout was excellent &mdash; I always knew exactly where my shipment was."</div>
+    <div class="testimonial-author">Customer &mdash; Washington DC</div>
+    <div class="testimonial-loc">Shipped to Accra, Ghana</div>
+  </div>
+  <div class="testimonial-card">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="testimonial-text">"Very reliable service. They kept me updated at every step and my family received everything in perfect condition. Will definitely use again."</div>
+    <div class="testimonial-author">Customer &mdash; Virginia</div>
+    <div class="testimonial-loc">Shipped to Kumasi, Ghana</div>
+  </div>
+  <div class="testimonial-card">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="testimonial-text">"Professional, responsive, and trustworthy. Lindasmark handled my shipment with care and made the whole process stress-free from start to finish."</div>
+    <div class="testimonial-author">Customer &mdash; Maryland</div>
+    <div class="testimonial-loc">Shipped to Accra, Ghana</div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div class="section section-cream" id="book">
+  <div class="section-tag">Book a Shipment</div>
+  <div class="section-title">Ready to ship to Ghana?</div>
+  <p class="section-sub">Fill out the form below or reach us directly on WhatsApp for a faster response.</p>
+
+  <div class="contact-row">
+    <div class="contact-badge">TEL</div>
+    <div>
+      <div class="contact-label">Phone / WhatsApp</div>
+      <div class="contact-value">703-870-6636</div>
+    </div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-badge">LOC</div>
+    <div>
+      <div class="contact-label">Location</div>
+      <div class="contact-value">Manassas Park, Virginia</div>
+    </div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-badge">ROUTE</div>
+    <div>
+      <div class="contact-label">Route</div>
+      <div class="contact-value">USA &rarr; Ghana</div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">Request a Quote</div>
+    <label class="form-label">Your Name</label>
+    <input type="text" class="form-input" placeholder="Full name" id="fname">
+    <label class="form-label">Phone / WhatsApp</label>
+    <input type="tel" class="form-input" placeholder="+1 (000) 000-0000" id="fphone">
+    <label class="form-label">Email Address</label>
+    <input type="email" class="form-input" placeholder="your@email.com">
+    <div class="form-row">
+      <div>
+        <label class="form-label">Est. Weight</label>
+        <input type="text" class="form-input" placeholder="e.g. 15kg">
+      </div>
+      <div>
+        <label class="form-label">No. of Packages</label>
+        <input type="number" class="form-input" placeholder="e.g. 2" min="1">
+      </div>
+    </div>
+    <label class="form-label">What are you shipping?</label>
+    <textarea class="form-textarea" placeholder="Briefly describe the items..." id="fitems"></textarea>
+    <button class="form-submit" onclick="handleSubmit()">Send Booking Request &rarr;</button>
+    <div class="divider">or reach us directly</div>
+    <a href="https://wa.me/17038706636?text=Hi%2C%20I%27d%20like%20to%20book%20a%20shipment%20with%20Lindasmark%20Air%20Cargo." class="wa-btn" target="_blank">Message us on WhatsApp</a>
+    <div class="form-note">We typically respond within a few hours during business hours.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">LINDASMARK <span>AIR CARGO</span></div>
+  <div class="footer-tag">USA &rarr; Ghana Air Shipping<br>Serving the Ghanaian Diaspora Community</div>
+  <div class="footer-bottom">&copy; 2025 Lindasmark Air Cargo &middot; Manassas Park, Virginia &middot; 703-870-6636</div>
+</footer>
+
+<script>
+function handleSubmit() {
+  var name = document.getElementById('fname').value;
+  var phone = document.getElementById('fphone').value;
+  var items = document.getElementById('fitems').value;
+  if (!name || !phone) {
+    alert('Please enter your name and phone number.');
+    return;
+  }
+  var msg = encodeURIComponent('Hi, I would like to book a shipment with Lindasmark Air Cargo.\n\nName: ' + name + '\nPhone: ' + phone + '\nItems: ' + (items || 'Not specified'));
+  window.open('https://wa.me/17038706636?text=' + msg, '_blank');
+}
+</script>
+
+</body>
+</html>
